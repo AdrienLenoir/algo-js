@@ -18,7 +18,7 @@ class Rectangle {
         let yMin = this.topLeftYPos
         let yMax = this.topLeftYPos + this.length
 
-        let xMin_ = otherRectangle.topLeftYPos
+        let xMin_ = otherRectangle.topLeftXPos
         let xMax_ = otherRectangle.topLeftXPos + this.width
         let yMin_ = otherRectangle.topLeftYPos
         let yMax_ = otherRectangle.topLeftYPos + this.length
