@@ -6,7 +6,8 @@ const pizzaFile = "./pizza.json"
 
 function resolvePizzaData() {
     if (fs.existsSync(pizzaFile)) {
-        pizza = require(pizzaFile)
+        let pizzaData = fs.readFileSync(pizzaFile).toString()
+        pizza = JSON.parse(pizzaData)
     }
 }
 
