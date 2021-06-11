@@ -1,6 +1,18 @@
 const readlineSync = require("readline-sync");
+const fs = require('fs');
 
 let pizza = []
+const pizzaFile = "./pizza.json"
+
+function resolvePizzaData() {
+    if (fs.existsSync(pizzaFile)) {
+        pizza = require(pizzaFile)
+    }
+}
+
+function savePizzaData() {
+    fs.writeFileSync(pizzaFile, JSON.stringify(pizza));
+}
 
 function clearConsole() {
     for (let i = 0; i < 50; i++) {
@@ -31,7 +43,7 @@ function gui() {
     } else if (chose == 3) {
         removePizza()
     } else if (chose == 4) {
-        process.exit(0)
+        quit()
     }
 
     console.log("")
@@ -64,5 +76,11 @@ function removePizza() {
     pizza.splice(id, 1)
 }
 
+function quit() {
+    savePizzaData()
+    process.exit(0)
+}
+
 clearConsole()
+resolvePizzaData()
 gui()
